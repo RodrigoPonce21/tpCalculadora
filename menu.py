@@ -1,5 +1,5 @@
 import sys
-from funciones import sumar, restar, dividir, multiplicar, factorial_a, factorial_b
+from funciones import sumar, restar, dividir, multiplicar, factorial
 
 resultados = []
 
@@ -18,8 +18,8 @@ def calcular_todas_las_operaciones(op1, op2):
     resultadoresta={restar(op1, op2)}
     resultadodividir={dividir(op1, op2)}
     resultadomultiplicar={multiplicar(op1, op2)}
-    resultadofactorial_a={factorial_a(op1)}
-    resultadofactorial_b={factorial_b(op2)}
+    resultadofactorial_a={factorial(op1)}
+    resultadofactorial_b={factorial(op2)}
 
     resultados.append(f"El resultado de {op1}+{op2} es: {resultadosuma}")
     resultados.append(f"El resultado de {op1}-{op2} es: {resultadoresta}")
