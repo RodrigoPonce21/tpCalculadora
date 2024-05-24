@@ -1,6 +1,7 @@
 import sys
 from funciones import sumar, restar, dividir, multiplicar, factorial_a, factorial_b
 
+resultados = []
 
 def ingresar_operando():
     """Pide al usuario que ingrese un operando"""
@@ -13,14 +14,22 @@ def ingresar_operando():
 
 def calcular_todas_las_operaciones(op1, op2):
     """Realiza todas las operaciones y muestra los resultados"""
-    print(f"El resultado de {op1}+{op2} es: {sumar(op1, op2)}")
-    print(f"El resultado de {op1}-{op2} es: {restar(op1, op2)}")
-    print(f"El resultado de {op1}/{op2} es: {dividir(op1, op2)}")
-    print(f"El resultado de {op1}*{op2} es: {multiplicar(op1, op2)}")
-    print(f"El factorial de {op1} es: {factorial_a(op1)} y El factorial de {op2} es: {factorial_b(op2)}")
+    resultadosuma={sumar(op1, op2)}
+    resultadoresta={restar(op1, op2)}
+    resultadodividir={dividir(op1, op2)}
+    resultadomultiplicar={multiplicar(op1, op2)}
+    resultadofactorial_a={factorial_a(op1)}
+    resultadofactorial_b={factorial_b(op2)}
+
+    resultados.append(f"El resultado de {op1}+{op2} es: {resultadosuma}")
+    resultados.append(f"El resultado de {op1}-{op2} es: {resultadoresta}")
+    resultados.append(f"El resultado de {op1}/{op2} es: {resultadodividir}")
+    resultados.append(f"El resultado de {op1}*{op2} es: {resultadomultiplicar}")
+    resultados.append(f"El factorial de {op1} es: {resultadofactorial_a} y El factorial de {op2} es: {resultadofactorial_b}")
 
 def main():
     op1 = op2 = 0
+    results = []
     while True:
         print("\nSeleccione una opción:")
         print(f"1. Ingresar 1er operando (A={op1})")
@@ -41,18 +50,15 @@ def main():
             op2 = ingresar_operando()
         elif opcion == 3:
             if op1 == 0 or op2 == 0:
-                print("Primero debe ingresar ambos operandos.")
-            else:
-                print("Operaciones calculadas. Seleccione la opción 4 para mostrar los resultados.")
-        elif opcion == 4:
-            if op1 == 0 or op2 == 0:
-                print("Primero debe ingresar ambos operandos y calcular las operaciones.")
+                print("Ingrese ambos operandos primero.")
             else:
                 calcular_todas_las_operaciones(op1, op2)
+        elif opcion == 4:
+                print("\nResultados:")
+                print("\n".join(resultados))
         elif opcion == 5:
-            print("Saliendo del programa...")
-            sys.exit(0)
+            sys.exit("Adiós.")
         else:
-            print("Opción inválida. Intente nuevamente.")
+            print("Ingrese una opción válida.")
 
 main()
