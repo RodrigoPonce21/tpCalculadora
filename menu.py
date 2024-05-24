@@ -1,6 +1,7 @@
 import sys
 from funciones import sumar, restar, dividir, multiplicar, factorial
 
+"""Se crea una lista"""
 resultados = []
 
 def ingresar_operando():
@@ -13,7 +14,7 @@ def ingresar_operando():
             print("Ingrese un número válido.")
 
 def calcular_todas_las_operaciones(op1, op2):
-    """Realiza todas las operaciones y muestra los resultados"""
+    """Realiza todas las operaciones y guarda los resultados en una lista"""
     resultadosuma={sumar(op1, op2)}
     resultadoresta={restar(op1, op2)}
     resultadodividir={dividir(op1, op2)}
@@ -28,8 +29,8 @@ def calcular_todas_las_operaciones(op1, op2):
     resultados.append(f"El factorial de {op1} es: {resultadofactorial_a} y El factorial de {op2} es: {resultadofactorial_b}")
 
 def main():
+"""Se imprime menu"""
     op1 = op2 = 0
-    results = []
     while True:
         print("\nSeleccione una opción:")
         print(f"1. Ingresar 1er operando (A={op1})")
